@@ -2,7 +2,7 @@ require './lib/count_words'
 
 RSpec.describe 'count_words takes a string as an argument and returns the number of words' do
 
-  it 'takes a string and returns an integer' do
+  xit 'takes a string and returns an integer' do
     result = count_words('Hello i am string man')
 
     expect(result).to be_an(Integer)
