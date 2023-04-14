@@ -30,8 +30,12 @@ todo_finder('') => false
 todo_finder('not todo') => false
 todo_finder('still not TODO') => false
 todo_finder('also not a #todo') => false
+
 todo_finder('I am a #TODO') => true
 todo_finder('Iamalsoonthe#TODOlist') => true
+todo_finder('#TODO#TODO#TODO') => true
+
+todo_finder(nil) => 'Error, this is not a valid text'
 
 ```
 
