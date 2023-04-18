@@ -1,4 +1,4 @@
-# {{TODO}} Class Design Recipe
+# TODO Class Design Recipe
 
 ## 1. Describe the Problem
 
@@ -11,19 +11,22 @@ _Include the initializer and public methods with all parameters and return value
 
 ```ruby
 
-class Todo
-  def initialize(name) # name is a string
-    # ...
+class Todolist
+  def initialize # name is a string
   end
 
-  def remind_me_to(task) # task is a string
+  def add(task) # task is a string representing a instruction
     # No return value
   end
 
-  def remind()
-    # Throws an exception if no task is set
-    # Otherwise, returns a string reminding the user to do the task
+  def list()
+    # returns a list of the tasks added as strings
+    # except the completed ones
   end
+
+  de complete(task) #task is a string representing a task t mark complete
+  # returns nothing
+  # fails if the task doesn't exist
 end
 ```
 
@@ -35,18 +38,29 @@ _Make a list of examples of how the class will behave in different situations._
 # EXAMPLE
 
 # 1
-reminder = Reminder("Kay")
-reminder.remind_me_to("Walk the dog")
-reminder.remind() # => "Walk the dog, Kay!"
+todo_list = TodoList.new
+todo_list.list # => []
 
-# 2
-reminder = Reminder("Kay")
-reminder.remind() # fails with "No task set."
+todo_list = TodoList.new
+todo_list.add("Wash the car")
+todo_list.list # => ["Wash the car"]
 
-# 3
-reminder = Reminder("Kay")
-reminder.remind_me_to("")
-reminder.remind() # => ", Kay!"
+todo_list = TodoList.new
+todo_list.add("Wash the car")
+todo_list.add("Wash the dog")
+todo_list.list # => ["Wash the car", "wash the dog"]
+
+todo_list = TodoList.new
+todo_list.add("Wash the car")
+todo_list.add("Wash the dog")
+todo_list.comnplete("Wash the car")
+todo_list.list # => ["wash the dog"]
+
+todo_list = TodoList.new
+todo_list.add("Wash the car")
+todo_list.comnplete("Wash the sheep")
+todo_list.list # => fails "no such task"
+
 ```
 
 _Encode each example as a test. You can add to the above list as you go._
