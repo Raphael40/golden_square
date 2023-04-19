@@ -5,6 +5,7 @@ class Todo
   end
 
   def task
+    fail "Please enter valid todo." if @task.empty?
     return @task
   end
 

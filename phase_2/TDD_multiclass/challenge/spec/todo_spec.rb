@@ -13,4 +13,11 @@ RSpec.describe Todo do
     
     expect(todo.done?).to eq true
   end
+
+  context "it fail" do
+    it "raise error if empty string is passed" do
+      todo = Todo.new('')
+      expect { todo.task }.to raise_error "Please enter valid todo."
+    end
+  end
 end

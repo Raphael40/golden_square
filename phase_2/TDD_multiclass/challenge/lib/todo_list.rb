@@ -1,15 +1,15 @@
 class TodoList
   def initialize
-    @incomlete_list = []
+    @incomplete_list = []
     @completed_list = []
   end
 
   def add(todo)
-    
+    @incomplete_list << todo
   end
 
   def incomplete
-   
+   @incomplete_list
   end
 
   def complete
