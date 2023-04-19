@@ -1,7 +1,7 @@
 class Todo
   def initialize(task)
     @task = task
-    @marked_done = []
+    @marked_done = false
   end
 
   def task
@@ -10,14 +10,10 @@ class Todo
   end
 
   def mark_done!
-    @marked_done << @task
+    @marked_done = true
   end
 
   def done?
-    if @marked_done.include? @task
-      true
-    else
-      false
-    end
+    return @marked_done
   end
 end
