@@ -13,5 +13,11 @@ RSpec.describe Diary do
 
       expect(diary.count_words).to eq 0
     end
+
+    it 'has a reading time of 0' do
+      diary = Diary.new
+
+      expect(diary.reading_time(2)).to eq 0
+    end
   end
 end

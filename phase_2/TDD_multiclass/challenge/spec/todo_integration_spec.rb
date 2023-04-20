@@ -31,5 +31,15 @@ RSpec.describe TodoList do
       todo_2.done?
       expect(todo_list.complete).to eq [todo, todo_2]
     end
+
+    it 'marks every task as complete when give_up! is called' do
+      todo_list = TodoList.new
+      todo = Todo.new('lalala')
+      todo_2 = Todo.new('too much')
+      todo_list.add(todo)
+      todo_list.add(todo_2)
+      todo_list.give_up!
+      expect(todo_list.complete).to eq [todo, todo_2]
+    end
   end
 end
