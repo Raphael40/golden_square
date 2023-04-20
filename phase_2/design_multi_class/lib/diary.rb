@@ -1,6 +1,7 @@
 class Diary
   def initialize
     @entries = []
+    @todo_entries = []
     @mobile_numbers = []
   end
 
@@ -9,7 +10,9 @@ class Diary
   end
 
   def add_todo(todo)
+    @todo_entries << todo
 
+    @entries += @todo_entries.select { |task| task.done? }
   end
 
   def list_entries

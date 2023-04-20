@@ -2,14 +2,14 @@ require './lib/diary'
 require './lib/todo'
 
 RSpec.describe do
-  xit 'adds all the completed todos to the diary entries' do
+  it 'adds all the completed todos to the diary entries' do
     diary = Diary.new
     todo = Todo.new
     todo.add("my todo")
     todo.marked_complete
-    result = todo.done
-    diary.add_todo(result) # adds todos marked as complete
+    todo.done?
+    diary.add_todo(todo)
 
-    expect(diary.list_entries).to eq [result]
+    expect(diary.list_entries).to eq [todo]
   end
 end
