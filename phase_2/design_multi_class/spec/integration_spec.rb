@@ -6,7 +6,8 @@ RSpec.describe do
     diary = Diary.new
     todo = Todo.new
     todo.add("my todo")
-    result = todo.marked_complete
+    todo.marked_complete
+    result = todo.done
     diary.add_todo(result) # adds todos marked as complete
 
     expect(diary.list_entries).to eq [result]
