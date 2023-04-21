@@ -1,17 +1,19 @@
 class MusicLibrary
   def initialize
-    @library = []
+    @tracks = []
   end
 
   def add(track) 
-    @library << track
+    @tracks << track
   end
 
   def all
-    @library
+    @tracks
   end
   
-  def search(keyword) # keyword is a string
-    # Returns a list of tracks that match the keyword
+  def search(keyword) 
+    return @tracks.select do |track|
+      track.matches?(keyword)
+    end
   end
 end

@@ -7,15 +7,17 @@ RSpec.describe MusicLibrary do
     track_2 = double :track
     music_library.add(track_1)
     music_library.add(track_2)
+
+    expect(music_library.all).to eq [track_1, track_2]
   end
 
   it 'searches tracks by title' do
     music_library = MusicLibrary.new
-    track_1 = Track.new('Notorious BIG', 'Juicy (clean version)')
-    track_2 = Track.new('Funky Artist', 'Crazy Track')
+    track_1 = double :track, matches?: true
+    track_2 = double :track, matches?: false
     music_library.add(track_1)
     music_library.add(track_2)
 
-    expect(music_library.search("BIG")).to eq track_1
+    expect(music_library.search("BIG")).to eq [track_1]
   end
 end
